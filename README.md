@@ -8,7 +8,7 @@ Execute os seguintes passos:
 - ```npm install``` ou ```yarn install``` para instalar todas as dependências;
 - ```npm start``` ou ```yarn start``` para rodar a aplicação com nodemon;
 
-##Pre requisitos
+## Pré-requisitos
 Certifique-se de ter o NodeJS/NPM ou Yarn instalados em sua máquina.
 
 ### Estrutura das Rotas
