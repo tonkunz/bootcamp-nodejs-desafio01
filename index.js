@@ -12,6 +12,12 @@ nunjucks.configure('views', {
 app.use(express.urlencoded({ extended: false }))
 app.set('view engine', 'njk')
 
+// Middleware
+const handleAgeMiddleware = (req, res, next) => {
+  req.query.age ? next() : res.redirect('/')
+}
+
+// Rotas
 app.get('/', (req, res) => {
   res.render('home')
 })
@@ -26,13 +32,13 @@ app.post('/check', (req, res) => {
   }
 })
 
-app.get('/major', (req, res) => {
+app.get('/major', handleAgeMiddleware, (req, res) => {
   const { age } = req.query
 
   return res.render('major', { age })
 })
 
-app.get('/minor', (req, res) => {
+app.get('/minor', handleAgeMiddleware, (req, res) => {
   const { age } = req.query
   return res.render('minor', { age })
 })
